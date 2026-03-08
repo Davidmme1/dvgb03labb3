@@ -83,8 +83,32 @@ pnode node_cons(pnode first, pnode second)
 //           in graph, nothing is done
 pnode add_node(pnode G, char nname)
 {
+
+	if(is_empty(G))
+		{
+			return create_node(nname);
+		}
+
+	if(get_name(G) == nname)
+		{
+			return G;
+		}
+
+	if(nname < get_name(G))
+		{
+			pnode new_node = create_node(nname);
+			node_cons(new_node, G);
+			return new_node;
+
+		}
+
+	//pnode current = get_name(G);
+
+	
+	
 	// TODO
 	return G;
+	
 }
 // rem_node: removes node with name name from adjacency list G
 //           if node does not exist, nothing happens
